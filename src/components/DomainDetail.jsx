@@ -43,7 +43,6 @@ export default function DomainDetail({ domain, data, onClose }) {
   return (
     <div className="domain-detail-overlay" onClick={onClose}>
       <div className="domain-detail-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="case-note-label">DOMAIN DOSSIER</div>
         <button className="domain-detail-close" onClick={onClose}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 4L4 12M4 4l8 8"/>
