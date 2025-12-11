@@ -1,6 +1,6 @@
-# Frankenstein: Guilt Simulator – Courtroom Edition
+# The Trial of Frankenstein: Who Is Truly Guilty?
 
-An interactive literary analysis experience that transforms Mary Shelley's *Frankenstein* into a courtroom-style guilt simulator.
+An interactive forensic game where players analyze evidence to decide who is truly guilty in the Frankenstein tragedy.
 
 ## How to Run Locally
 

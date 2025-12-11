@@ -4,11 +4,13 @@
  * Landing page with detective-office vibe and parallax effect
  */
 
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MagnifyingGlassIcon from '../components/MagnifyingGlassIcon'
 
 export default function CaseIntake() {
   const navigate = useNavigate()
+  const [showAboutModal, setShowAboutModal] = useState(false)
 
   return (
     <div className="case-intake">
@@ -31,12 +33,15 @@ export default function CaseIntake() {
       <div className="case-intake-content">
         <div className="case-intake-layout">
           <div className="case-intake-left">
-            <h1 className="case-intake-title">Frankenstein: Psychological Case Evaluation Simulator</h1>
+            <h1 className="case-intake-title">
+              <span className="title-line-1">The Trial of Frankenstein:</span>
+              <br />
+              <span className="title-indent">Who is Truly</span>
+              <br />
+              <span className="title-indent">Guilty?</span>
+            </h1>
             <p className="case-intake-subtitle">
-              A forensic case study of responsibility, trauma, and systemic failure.
-            </p>
-            <p className="case-intake-description-line">
-              You are reviewing the evidence to determine who bears responsibility: Victor, the Creature, or both.
+              A forensic game where players analyze evidence to decide who is truly guilty in the Frankenstein tragedies.
             </p>
 
             <button 
@@ -45,6 +50,13 @@ export default function CaseIntake() {
             >
               <MagnifyingGlassIcon size={18} color="currentColor" />
               <span>Open Case File</span>
+            </button>
+            
+            <button 
+              className="about-link"
+              onClick={() => setShowAboutModal(true)}
+            >
+              What is this investigation?
             </button>
           </div>
 
@@ -56,6 +68,40 @@ export default function CaseIntake() {
           </div>
         </div>
       </div>
+
+      {showAboutModal && (
+        <div 
+          className="about-modal-overlay"
+          onClick={() => setShowAboutModal(false)}
+        >
+          <div 
+            className="about-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="about-modal-close"
+              onClick={() => setShowAboutModal(false)}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M15 5L5 15M5 5l10 10"/>
+              </svg>
+            </button>
+            <div className="about-modal-text">
+              <p>You are stepping into the role of a forensic evaluator assigned to Case FRK-001.</p>
+              <p>Your task is to:</p>
+              <ul className="about-modal-list">
+                <li>Review testimony</li>
+                <li>Examine psychological profiles</li>
+                <li>Analyze trauma histories</li>
+                <li>Identify missed opportunities</li>
+                <li>Determine responsibility in the Frankenstein tragedy</li>
+              </ul>
+              <p>Your decisions affect the case results and your final report becomes the official judgment.</p>
+              <p className="about-modal-goodluck">Good luck</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
